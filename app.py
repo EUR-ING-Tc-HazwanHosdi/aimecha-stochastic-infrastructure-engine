@@ -229,10 +229,3 @@ with st.expander(
       * **Rationale:** Represents the rate at which the completed infrastructure asset begins generating operational service utility once connected to the national municipal grid.
     """)
 
-# --- Explanation Panel ---
-with st.expander("💡 How to Interpret This Simulation for IWK & CADCS Workflows"):
-  st.markdown(f"""
-    * **Budget Burst Probability ({p_burst*100:.1f}%):** This represents the exact mathematical likelihood that your subterranean works will breach the traditional static ceiling before project handover. If this number is high, flat 10% contingency buffers will fail.
-    * **ROA Optimized Markup ({alpha_roA*100:.1f}%):** Rather than guessing, Real Options Analysis suggests pricing the reserve at **{alpha_roA*100:.1f}%** (or **RM {C0*alpha_roA:,.2f}**). This accounts for subterranean shock volatility ($\sigma = {sigma}$) such as deep trenching anomalies and unmapped utility clashes.
-    * **Deployment:** You can run this app locally by saving it as `app.py` and running `streamlit run app.py` in your terminal, or deploy it instantly for free on Streamlit Community Cloud.
-    """)
