@@ -204,7 +204,7 @@ with st.expander(
       * **Unit:** Malaysian Ringgit (RM)
       * **Rationale:** Represents the upfront baseline capital expenditure for a mid-scale municipal sewerage infrastructure project (gravity sewers, manholes, or local STP) approved under the CADCS framework.
     
-    * **Traditional Contingency Markup ($r\alpha$)**
+    * **Traditional Contingency Markup $r(\\alpha)$**\n**
       * **Unit:** Decimal ratio (`0.10` = 10%)
       * **Rationale:** Matches the legacy industry-standard flat contingency rule traditionally added to civil engineering Bills of Quantities (BQ). Used to benchmark the risk of a budget burst.
     
