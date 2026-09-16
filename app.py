@@ -32,7 +32,7 @@ C0 = st.sidebar.number_input(
     step=500000.0,
 )
 alpha_static = st.sidebar.slider(
-    "Traditional Contingency Markup ($\alpha$)",
+    r"Traditional Contingency Markup ($\alpha$)",
     min_value=0.01,
     max_value=0.30,
     value=0.10,
@@ -112,7 +112,7 @@ with col3:
   )
 with col4:
   st.metric(
-      label="ROA Optimized Markup ($\alpha_{\text{ROA}}$)",
+      label=r"ROA Optimized Markup ($\alpha_{\text{ROA}}$)",
       value=f"{alpha_roA*100:.1f}%",
       delta=f"RM {C0*alpha_roA:,.2f}",
   )
