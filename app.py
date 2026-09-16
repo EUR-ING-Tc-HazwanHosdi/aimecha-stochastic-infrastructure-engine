@@ -78,7 +78,6 @@ delta = st.sidebar.slider(
 C_ceiling = (1 + alpha_static) * C0
 
 # 1. Budget Burst Probability Calculation
-# k = [ln(1 + alpha) - (mu - 0.5*sigma^2)*T] / (sigma * sqrt(T))
 numerator_k = np.log(1 + alpha_static) - (mu - 0.5 * (sigma**2)) * T
 denominator_k = sigma * np.sqrt(T)
 k = numerator_k / denominator_k
@@ -97,9 +96,7 @@ else:
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-  st.metric(
-      label="Baseline CapEx ($C_0$)", value=f"RM {C0:,.2f}"
-  )
+  st.metric(label="Baseline CapEx ($C_0$)", value=f"RM {C0:,.2f}")
 with col2:
   st.metric(
       label="Static Risk Ceiling",
@@ -127,13 +124,11 @@ st.subheader(
     "📊 Stochastic Cost Evolution Paths vs. Static & ROA Risk Ceilings"
 )
 
-
-@st.cache_data
-iat = 100  # Number of simulation paths
 steps = int(T * 12)  # Monthly steps
 dt = T / steps
 
 
+@st.cache_data
 def run_monte_carlo(C0, mu, sigma, T, steps, num_paths=100):
   time_grid = np.linspace(0, T, steps + 1)
   paths = np.zeros((num_paths, steps + 1))
@@ -146,7 +141,7 @@ def run_monte_carlo(C0, mu, sigma, T, steps, num_paths=100):
   return time_grid, paths
 
 
-time_grid, sim_paths = run_monte_carlo(C0, mu, sigma, T, steps)
+time_grid, sim_paths = run_monte_carlo(C0, mu, sigma, T, steps, num_paths=100)
 
 fig, ax = plt.subplots(figsize=(10, 5))
 for i in range(sim_paths.shape[0]):
