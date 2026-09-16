@@ -193,3 +193,46 @@ with st.expander("💡 How to Interpret This Simulation for IWK & CADCS Workflow
     * **ROA Optimized Markup ({alpha_roA*100:.1f}%):** Rather than guessing, Real Options Analysis suggests pricing the reserve at **{alpha_roA*100:.1f}%** (or **RM {C0*alpha_roA:,.2f}**). This accounts for subterranean shock volatility ($\sigma = {sigma}$) such as deep trenching anomalies and unmapped utility clashes.
     * **Deployment:** You can run this app locally by saving it as `app.py` and running `streamlit run app.py` in your terminal, or deploy it instantly for free on Streamlit Community Cloud.
     """)
+# --- NEW: User Guide & Parameter Definitions Panel ---
+with st.expander(
+    "📖 Parameter Definitions, Units & Engineering Rationale (Click to Expand)"
+):
+  st.markdown("""
+    This guide explains the parameters controlled via the sidebar sliders to help municipal planners and engineers interpret the simulation:
+
+    * **Baseline CapEx ($C_0$)**
+      * **Unit:** Malaysian Ringgit (RM)
+      * **Rationale:** Represents the upfront baseline capital expenditure for a mid-scale municipal sewerage infrastructure project (gravity sewers, manholes, or local STP) approved under the CADCS framework.
+    
+    * **Traditional Contingency Markup ($\alpha$)**
+      * **Unit:** Decimal ratio (`0.10` = 10%)
+      * **Rationale:** Matches the legacy industry-standard flat contingency rule traditionally added to civil engineering Bills of Quantities (BQ). Used to benchmark the risk of a budget burst.
+    
+    * **Project Completion Horizon ($T$)**
+      * **Unit:** Years (`1.50` = 18 months)
+      * **Rationale:** Reflects the typical construction and commissioning timeline from initial groundbreaking to final regulatory handover to Indah Water Konsortium (IWK).
+    
+    * **Operational Cost Drift ($\mu$)**
+      * **Unit:** Annualized rate (`0.05` = 5%/year)
+      * **Rationale:** Captures standard baseline cost creep over time driven by macroeconomic material inflation, daily labor burn rates, and project overheads.
+    
+    * **Subterranean Volatility ($\sigma$)**
+      * **Unit:** Annualized volatility coefficient (`0.20` = 20%)
+      * **Rationale:** Quantifies severe, unpredictable geological risks unique to underground utility work—such as unmapped utility clashes, high groundwater tables, and hard rock anomalies during deep trenching.
+    
+    * **Risk-Free Rate ($r$)**
+      * **Unit:** Annualized percentage rate (`0.04` = 4%)
+      * **Rationale:** Benchmarked against national municipal bond yields, serving as the discount rate foundation for the Real Options Analysis (ROA) option-pricing engine.
+    
+    * **Service Yield / Cash-Flow Rate ($\delta$)**
+      * **Unit:** Annualized percentage rate (`0.02` = 2%)
+      * **Rationale:** Represents the rate at which the completed infrastructure asset begins generating operational service utility once connected to the national municipal grid.
+    """)
+
+# --- Explanation Panel ---
+with st.expander("💡 How to Interpret This Simulation for IWK & CADCS Workflows"):
+  st.markdown(f"""
+    * **Budget Burst Probability ({p_burst*100:.1f}%):** This represents the exact mathematical likelihood that your subterranean works will breach the traditional static ceiling before project handover. If this number is high, flat 10% contingency buffers will fail.
+    * **ROA Optimized Markup ({alpha_roA*100:.1f}%):** Rather than guessing, Real Options Analysis suggests pricing the reserve at **{alpha_roA*100:.1f}%** (or **RM {C0*alpha_roA:,.2f}**). This accounts for subterranean shock volatility ($\sigma = {sigma}$) such as deep trenching anomalies and unmapped utility clashes.
+    * **Deployment:** You can run this app locally by saving it as `app.py` and running `streamlit run app.py` in your terminal, or deploy it instantly for free on Streamlit Community Cloud.
+    """)
